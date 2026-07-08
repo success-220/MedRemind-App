@@ -1,0 +1,177 @@
+/* =====================================
+   SPLASH PAGE
+===================================== */
+
+.splash{
+    min-height:100vh;
+    width:100%;
+    background:#109784;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.splash__content{
+    width:100%;
+    max-width:700px;
+    text-align:center;
+}
+
+.splash__title{
+    color:#181717;
+    font-size:48px;
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:12px;
+}
+
+.splash__subtitle{
+    color:#E6F6F4;
+    font-size:20px;
+    line-height:1.6;
+    margin-bottom:45px;
+}
+
+.loader{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+}
+
+.loader span{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#181515;
+    animation:bounce 1s infinite ease-in-out;
+}
+
+.loader span:nth-child(2){
+    animation-delay:.2s;
+}
+
+.loader span:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:scale(.7);
+        opacity:.5;
+    }
+
+    50%{
+        transform:scale(1.2);
+        opacity:1;
+    }
+
+}
+
+/* =====================================
+   PHONES (Android & iPhone)
+===================================== */
+
+@media (max-width:767px){
+
+.splash{
+    padding:20px;
+}
+
+.splash__content{
+    max-width:100%;
+}
+
+.splash__title{
+    font-size:34px;
+    letter-spacing:2px;
+}
+
+.splash__subtitle{
+    font-size:16px;
+    margin-bottom:35px;
+}
+
+.loader span{
+    width:12px;
+    height:12px;
+}
+
+}
+
+/* =====================================
+   TABLETS
+===================================== */
+
+@media (min-width:768px) and (max-width:1023px){
+
+.splash__content{
+    max-width:600px;
+}
+
+.splash__title{
+    font-size:42px;
+}
+
+.splash__subtitle{
+    font-size:18px;
+}
+
+.loader span{
+    width:13px;
+    height:13px;
+}
+
+}
+
+/* =====================================
+   iPAD
+===================================== */
+
+@media (min-width:1024px) and (max-width:1366px){
+
+.splash__content{
+    max-width:650px;
+}
+
+.splash__title{
+    font-size:46px;
+}
+
+.splash__subtitle{
+    font-size:19px;
+}
+
+.loader span{
+    width:14px;
+    height:14px;
+}
+
+}
+
+/* =====================================
+   LAPTOPS & DESKTOPS
+===================================== */
+
+@media (min-width:1367px){
+
+.splash__content{
+    max-width:720px;
+}
+
+.splash__title{
+    font-size:54px;
+}
+
+.splash__subtitle{
+    font-size:22px;
+}
+
+.loader span{
+    width:16px;
+    height:16px;
+}
+
+}

@@ -1,0 +1,161 @@
+/* =====================================
+   BOTTOM NAVIGATION
+===================================== */
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+
+    width:100%;
+
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+
+    padding:18px 6%;
+
+    background:#fff;
+    border-top:1px solid #E5E7EB;
+    box-shadow:0 -4px 15px rgba(0,0,0,.08);
+
+    z-index:1000;
+}
+
+
+/* =====================================
+   LINKS
+===================================== */
+
+.bottom-nav__link{
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    gap:6px;
+
+    text-decoration:none;
+
+    color:#777;
+
+    border-radius:16px;
+
+    padding:12px 6px;
+
+    transition:.3s ease;
+}
+
+.bottom-nav__link span:first-child{
+    font-size:24px;
+}
+
+.bottom-nav__link span:last-child{
+    font-size:14px;
+    font-weight:600;
+}
+
+.bottom-nav__link:hover{
+    background:#E6F6F4;
+    color:#109784;
+}
+
+.bottom-nav__link.active{
+    background:#109784;
+    color:#ffffff;
+}
+
+/* =====================================
+   PHONE
+===================================== */
+
+@media (max-width:767px){
+
+.bottom-nav{
+    padding:10px 12px;
+}
+
+.bottom-nav__link{
+    padding:10px 4px;
+}
+
+.bottom-nav__link span:first-child{
+    font-size:22px;
+}
+
+.bottom-nav__link span:last-child{
+    font-size:12px;
+}
+
+}
+
+/* =====================================
+   TABLET
+===================================== */
+@media (min-width:768px) and (max-width:1023px){
+
+.bottom-nav{
+    padding:14px 40px;
+}
+
+.bottom-nav__link{
+    padding:14px;
+}
+
+.bottom-nav__link span:first-child{
+    font-size:26px;
+}
+
+.bottom-nav__link span:last-child{
+    font-size:15px;
+}
+
+}
+
+/* =====================================
+   iPAD
+===================================== */
+
+@media (min-width:1024px) and (max-width:1366px){
+
+.bottom-nav{
+    padding:16px 60px;
+}
+
+.bottom-nav__link{
+    padding:16px;
+}
+
+.bottom-nav__link span:first-child{
+    font-size:28px;
+}
+
+.bottom-nav__link span:last-child{
+    font-size:16px;
+}
+
+}
+
+/* =====================================
+   LAPTOP
+===================================== */
+
+@media (min-width:1367px){
+
+.bottom-nav{
+    padding:18px 90px;
+}
+
+.bottom-nav__link{
+    padding:18px;
+}
+
+.bottom-nav__link span:first-child{
+    font-size:32px;
+}
+
+.bottom-nav__link span:last-child{
+    font-size:17px;
+}
+
+}

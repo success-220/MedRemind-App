@@ -1,0 +1,130 @@
+/* ==========================
+   GLOBAL APP LAYOUT
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+    width:100%;
+    min-height:100%;
+    overflow-x:hidden;
+    font-family:Arial, Helvetica, sans-serif;
+    background:#F7F9FB;
+}
+
+body{
+    color:#222;
+}
+
+.app{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* Main content */
+.app main{
+    flex:1;
+    width:100%;
+}
+
+/* Space for fixed navbar */
+.app.has-navbar main{
+    padding-top:80px;
+}
+
+/* Space for fixed bottom navigation */
+.app.has-bottom-nav main{
+    padding-bottom:90px;
+}
+
+/* Links */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* Buttons */
+
+button{
+    cursor:pointer;
+    border:none;
+    font-family:inherit;
+}
+
+img{
+    max-width:100%;
+    display:block;
+}
+
+/* ==========================
+   PHONE
+========================== */
+
+@media (max-width:767px){
+
+.app.has-navbar main{
+    padding-top:70px;
+}
+
+.app.has-bottom-nav main{
+    padding-bottom:85px;
+}
+
+}
+
+/* ==========================
+   TABLET
+========================== */
+
+@media (min-width:768px) and (max-width:1023px){
+
+.app.has-navbar main{
+    padding-top:75px;
+}
+
+.app.has-bottom-nav main{
+    padding-bottom:90px;
+}
+
+}
+
+/* ==========================
+   IPAD
+========================== */
+
+@media (min-width:1024px) and (max-width:1366px){
+
+.app.has-navbar main{
+    padding-top:80px;
+}
+
+.app.has-bottom-nav main{
+    padding-bottom:95px;
+}
+
+}
+
+/* ==========================
+   LAPTOP & DESKTOP
+========================== */
+
+@media (min-width:1367px){
+
+.app.has-navbar main{
+    padding-top:85px;
+}
+
+.app.has-bottom-nav main{
+    padding-bottom:100px;
+}
+
+}

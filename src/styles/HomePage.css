@@ -1,0 +1,464 @@
+/* ==========================================
+   HOME PAGE
+========================================== */
+
+.page--home{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:110px 25px 120px;
+}
+
+/* ===============================
+   HERO
+================================ */
+
+.panel--hero{
+    background:linear-gradient(135deg,#109784,#00B39A);
+    border-radius:30px;
+    padding:35px;
+    color:#fff;
+    box-shadow:0 18px 40px rgba(16,151,132,.22);
+}
+
+.hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.panel__eyebrow{
+    font-size:15px;
+    opacity:.9;
+    margin-bottom:10px;
+}
+
+.panel__title{
+    font-size:40px;
+    font-weight:700;
+    margin-bottom:12px;
+}
+
+.panel__subtitle{
+    font-size:17px;
+    line-height:1.8;
+    max-width:500px;
+}
+
+.hero-pill{
+    background:#fff;
+    color:#109784;
+    padding:14px 26px;
+    border-radius:50px;
+    font-size:15px;
+    font-weight:700;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* ===============================
+   STATISTICS
+================================ */
+
+.panel--stats{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    background:none;
+    box-shadow:none;
+    padding:0;
+}
+
+.stat-card{
+    background:#fff;
+    border-radius:25px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 8px 30px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.stat-card:hover{
+    transform:translateY(-5px);
+}
+
+.stat-card__value{
+    color:#109784;
+    font-size:40px;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.stat-card__label{
+    font-size:15px;
+    color:#666;
+}
+
+/* =====================================
+   GLOBAL BUTTON DESIGN
+===================================== */
+
+.button{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    border:none;
+    outline:none;
+
+    padding:14px 24px;
+
+    border-radius:16px;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:all .3s ease;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+}
+
+.button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+}
+
+.button:active{
+    transform:scale(.97);
+}
+
+/* =====================================
+   PRIMARY
+===================================== */
+
+.button--primary{
+    background:#109784;
+    color:#fff;
+}
+
+.button--primary:hover{
+    background:#0D846F;
+}
+
+/* =====================================
+   SECONDARY
+===================================== */
+
+.button--secondary{
+    background:#E6F6F4;
+    color:#109784;
+}
+
+.button--secondary:hover{
+    background:#D2F0EC;
+}
+
+/* =====================================
+   SUCCESS (MARK TAKEN)
+===================================== */
+
+.button--success{
+    background:#16A34A;
+    color:#fff;
+}
+
+.button--success:hover{
+    background:#15803D;
+}
+
+/* =====================================
+   WARNING (SNOOZE)
+===================================== */
+
+.button--warning{
+    background:#F59E0B;
+    color:#fff;
+}
+
+.button--warning:hover{
+    background:#D97706;
+}
+
+/* =====================================
+   EDIT
+===================================== */
+
+.button--edit{
+    background:#2563EB;
+    color:#fff;
+}
+
+.button--edit:hover{
+    background:#1D4ED8;
+}
+
+/* =====================================
+   DELETE
+===================================== */
+
+.button--danger{
+    background:#DC2626;
+    color:#fff;
+}
+
+.button--danger:hover{
+    background:#B91C1C;
+}
+
+/* =====================================
+   LARGE BUTTON
+===================================== */
+
+.button--large{
+    width:100%;
+    min-height:65px;
+    border-radius:20px;
+    font-size:17px;
+    font-weight:700;
+}
+
+/* =====================================
+   SMALL BUTTON
+===================================== */
+
+.button--small{
+    padding:10px 18px;
+    border-radius:14px;
+    font-size:14px;
+}
+
+/* =====================================
+   BUTTON GROUP
+===================================== */
+
+.button-group{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:18px;
+}
+
+.button-group .button{
+    flex:1;
+}
+
+/* ===============================
+   PANELS
+================================ */
+
+.page--home .panel{
+    border-radius:25px;
+    padding:28px;
+    margin-top:25px;
+    margin-bottom:0;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+}
+
+.panel__header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.panel__header h2{
+    font-size:24px;
+    color:#222;
+}
+
+/* ===============================
+   MEDICATION LIST
+================================ */
+
+.home__list{
+    display:grid;
+    gap:20px;
+}
+
+/* ===============================
+   QUICK ACTIONS
+================================ */
+
+.action-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.button--large{
+    min-height:70px;
+    border-radius:18px;
+    font-size:17px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.button--large:hover{
+    transform:translateY(-3px);
+}
+
+/* ===============================
+   SUPPORT
+================================ */
+
+.panel--support{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.panel--support h2{
+    margin-bottom:10px;
+}
+
+.panel--support button{
+    min-width:170px;
+}
+
+/* ===============================
+   EMPTY
+================================ */
+
+.empty-state{
+    background:#E6F6F4;
+    border-radius:18px;
+    padding:25px;
+    text-align:center;
+    color:#109784;
+    font-weight:600;
+}
+
+/* =====================================
+   PHONE
+===================================== */
+
+@media(max-width:767px){
+
+.page--home{
+    padding:90px 15px 100px;
+}
+
+.hero-top{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.panel--hero{
+    padding:25px;
+}
+
+.panel__title{
+    font-size:30px;
+}
+
+.panel__subtitle{
+    font-size:15px;
+}
+
+.hero-pill{
+    margin-top:15px;
+}
+
+.panel--stats{
+    grid-template-columns:1fr;
+}
+
+.action-grid{
+    grid-template-columns:1fr;
+}
+
+.panel--support{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.stat-card{
+    padding:22px;
+}
+
+.stat-card__value{
+    font-size:34px;
+}
+
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media(min-width:768px) and (max-width:1023px){
+
+.page--home{
+    max-width:760px;
+}
+
+.panel--stats{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.action-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* =====================================
+   iPAD
+===================================== */
+
+@media(min-width:1024px) and (max-width:1366px){
+
+.page--home{
+    max-width:1100px;
+}
+
+.action-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.home__list{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* =====================================
+   LAPTOP & DESKTOP
+===================================== */
+
+@media(min-width:1367px){
+
+.page--home{
+    max-width:1350px;
+}
+
+.home__list{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.action-grid{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.panel__title{
+    font-size:46px;
+}
+
+.panel__subtitle{
+    font-size:18px;
+}
+
+.hero-pill{
+    padding:16px 32px;
+}
+
+}

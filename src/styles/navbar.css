@@ -1,0 +1,189 @@
+/* =====================================
+   NAVBAR
+===================================== */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;          /* add this */
+
+    width:100%;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 40px;
+
+    background:#fff;
+    border-bottom:1px solid #e5e7eb;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+
+    z-index:1000;
+}
+/* =====================================
+   BRAND
+===================================== */
+
+.navbar__brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+
+.navbar__title{
+    font-size:24px;
+    font-weight:700;
+    color:#109784;
+    text-decoration:none;
+}
+
+/* =====================================
+   MENU
+===================================== */
+
+.navbar__menu{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.navbar__link{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:46px;
+    height:46px;
+
+    font-size:24px;
+    text-decoration:none;
+
+    border-radius:50%;
+    transition:.3s;
+}
+
+.navbar__link:hover{
+    background:#E6F6F4;
+    transform:scale(1.05);
+}
+
+/* =====================================
+   PHONES
+===================================== */
+
+@media (max-width:767px){
+
+.navbar{
+    padding: 16px 18px;
+}
+
+.navbar__logo{
+    font-size:24px;
+}
+
+.navbar__title{
+    font-size:20px;
+}
+
+.navbar__menu{
+    gap:10px;
+}
+
+.navbar__link{
+    width:40px;
+    height:40px;
+    font-size:20px;
+}
+
+}
+
+/* =====================================
+   TABLETS
+===================================== */
+
+@media (min-width:768px) and (max-width:1023px){
+
+.navbar{
+    width:100%;
+    padding: 18px 40px;
+}
+
+.navbar__title{
+    font-size:22px;
+}
+
+.navbar__menu{
+    gap:18px;
+}
+
+.navbar__link{
+    width:44px;
+    height:44px;
+    font-size:22px;
+}
+
+}
+
+/* =====================================
+   iPAD
+===================================== */
+
+@media (min-width:1024px) and (max-width:1366px){
+
+.navbar{
+    width:100%;
+    padding: 20px 60px;
+}
+
+.navbar__title{
+    font-size:24px;
+}
+
+.navbar__menu{
+    gap:25px;
+}
+
+.navbar__link{
+    width:48px;
+    height:48px;
+    font-size:24px;
+}
+
+}
+
+/* =====================================
+   LAPTOP & DESKTOP
+===================================== */
+
+@media (min-width:1367px){
+
+.navbar{
+    width:100%;
+    padding: 22px 90px;
+}
+
+.navbar__brand{
+    gap:18px;
+}
+
+.navbar__logo{
+    font-size:34px;
+}
+
+.navbar__title{
+    font-size:28px;
+}
+
+.navbar__menu{
+    gap:30px;
+}
+
+.navbar__link{
+    width:52px;
+    height:52px;
+    font-size:26px;
+}
+
+}

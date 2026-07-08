@@ -1,0 +1,420 @@
+/* ==========================================
+   CALENDAR PAGE
+========================================== */
+
+.page--calendar{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:110px 24px 120px;
+    background:#F5FAFA;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.page--calendar .panel--hero{
+    background:linear-gradient(135deg,#109784,#00A991);
+    color:#fff;
+    padding:40px;
+    border-radius:28px;
+    box-shadow:0 15px 35px rgba(16,151,132,.20);
+    margin-bottom:30px;
+}
+
+.page--calendar .panel--hero h1{
+    font-size:40px;
+    margin-bottom:10px;
+}
+
+.page--calendar .panel__subtitle{
+    font-size:18px;
+    opacity:.95;
+}
+
+/* ==========================================
+   CALENDAR LAYOUT
+========================================== */
+
+.panel--calendar-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:25px;
+    margin-bottom:25px;
+}
+
+/* ==========================================
+   CALENDAR PREVIEW
+========================================== */
+
+.calendar-preview{
+    background:#fff;
+    padding:25px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.calendar-preview__month{
+    text-align:center;
+    font-size:26px;
+    font-weight:700;
+    color:#109784;
+    margin-bottom:25px;
+}
+
+/* ==========================================
+   CALENDAR GRID
+========================================== */
+
+.calendar-grid{
+    display:grid;
+    grid-template-columns:repeat(7,1fr);
+    gap:10px;
+}
+
+.calendar-grid__weekday{
+    text-align:center;
+    font-weight:700;
+    color:#109784;
+    padding:10px 0;
+}
+
+.calendar-grid__day{
+    position:relative;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:60px;
+    height:60px;
+
+    margin:auto;
+
+    background:#F5F7F8;
+
+    border-radius:16px;
+
+    transition:.3s;
+    cursor:pointer;
+}
+
+.calendar-grid__day:hover{
+    transform:translateY(-3px);
+    background:#E6F6F4;
+}
+
+.calendar-grid__day--empty{
+    background:transparent;
+    cursor:default;
+}
+
+/* ==========================================
+   TODAY
+========================================== */
+
+.calendar-grid__day--today{
+    outline:3px solid #109784;
+    outline-offset:2px;
+    font-weight:bold;
+}
+
+/* ==========================================
+   TAKEN
+========================================== */
+
+.calendar-grid__day--taken{
+    background:#DCFCE7;
+    border:2px solid #16A34A;
+    color:#15803D;
+    font-weight:700;
+}
+
+/* ==========================================
+   MISSED
+========================================== */
+
+.calendar-grid__day--missed{
+    background:#FEE2E2;
+    border:2px solid #DC2626;
+    color:#DC2626;
+    font-weight:700;
+}
+
+/* ==========================================
+   STATUS DOTS
+========================================== */
+
+.calendar-dot{
+    position:absolute;
+    bottom:6px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:9px;
+    height:9px;
+
+    border-radius:50%;
+}
+
+.calendar-dot--taken{
+    background:#16A34A;
+}
+
+.calendar-dot--missed{
+    background:#DC2626;
+}
+
+/* ==========================================
+   LEGEND
+========================================== */
+
+.calendar-legend{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    margin-top:25px;
+    padding-top:18px;
+    border-top:1px solid #E5E7EB;
+}
+
+.legend-item{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-weight:600;
+    color:#555;
+}
+
+.legend-color{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+}
+
+.legend-green{
+    background:#16A34A;
+}
+
+.legend-red{
+    background:#DC2626;
+}
+
+/* ==========================================
+   SUMMARY
+========================================== */
+
+.calendar-summary{
+    background:#fff;
+    border-radius:24px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.calendar-summary h2{
+    color:#109784;
+    margin-bottom:10px;
+}
+
+.calendar-summary p{
+    color:#555;
+}
+
+.calendar-summary__stats{
+    margin-top:25px;
+    display:grid;
+    gap:18px;
+}
+
+.calendar-summary__stats div{
+    background:#E6F6F4;
+    padding:20px;
+    border-radius:18px;
+    text-align:center;
+}
+
+.stat-card__value{
+    font-size:34px;
+    font-weight:700;
+    color:#109784;
+    margin-bottom:8px;
+}
+
+/* ==========================================
+   CALENDAR WIDGET
+========================================== */
+
+.calendar-widget{
+    background:#fff;
+    border-radius:24px;
+    padding:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.calendar-widget__header{
+    margin-bottom:20px;
+}
+
+.calendar-widget__title{
+    color:#109784;
+    font-size:28px;
+}
+
+.calendar-widget__grid{
+    display:grid;
+    gap:18px;
+}
+
+.calendar-widget__item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:#F7F9FB;
+
+    transition:.3s;
+}
+
+.calendar-widget__item:hover{
+    background:#E6F6F4;
+}
+
+.calendar-widget__item-time{
+    color:#109784;
+    font-size:18px;
+    font-weight:700;
+}
+
+.calendar-widget__item-name{
+    font-size:17px;
+    font-weight:600;
+    color:#222;
+}
+
+/* ==========================================
+   PHONE
+========================================== */
+
+@media(max-width:767px){
+
+.page--calendar{
+    padding:90px 15px 100px;
+}
+
+.panel--calendar-grid{
+    grid-template-columns:1fr;
+}
+
+.page--calendar .panel--hero{
+    padding:25px;
+}
+
+.page--calendar .panel--hero h1{
+    font-size:30px;
+}
+
+.calendar-preview,
+.calendar-summary,
+.calendar-widget{
+    padding:20px;
+}
+
+.calendar-grid{
+    gap:6px;
+}
+
+.calendar-grid__weekday{
+    font-size:12px;
+}
+
+.calendar-grid__day{
+    width:42px;
+    height:42px;
+    font-size:14px;
+}
+
+.calendar-legend{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.calendar-widget__item{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+}
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(min-width:768px) and (max-width:1023px){
+
+.page--calendar{
+    max-width:760px;
+}
+
+.panel--calendar-grid{
+    grid-template-columns:1fr;
+}
+
+.calendar-grid__day{
+    width:55px;
+    height:55px;
+}
+
+}
+
+/* ==========================================
+   IPAD
+========================================== */
+
+@media(min-width:1024px) and (max-width:1366px){
+
+.page--calendar{
+    max-width:1100px;
+}
+
+.panel--calendar-grid{
+    grid-template-columns:1.6fr .9fr;
+}
+
+.calendar-grid__day{
+    width:58px;
+    height:58px;
+}
+
+}
+
+/* ==========================================
+   DESKTOP
+========================================== */
+
+@media(min-width:1367px){
+
+.page--calendar{
+    max-width:1350px;
+}
+
+.panel--calendar-grid{
+    grid-template-columns:2fr 1fr;
+}
+
+.calendar-grid__day{
+    width:65px;
+    height:65px;
+}
+
+.calendar-widget__grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}

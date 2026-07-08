@@ -1,0 +1,407 @@
+/* =====================================
+   PAGE LAYOUT
+===================================== */
+
+.page{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+
+    padding:95px 20px 100px;
+
+    min-height:100vh;
+}
+
+/* =====================================
+   PANELS
+===================================== */
+
+.panel{
+    background:#FFFFFF;
+    border-radius:22px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+/* =====================================
+   HERO SECTION
+===================================== */
+
+.panel--hero{
+    background:linear-gradient(135deg,#109784,#00A991);
+    color:#FFFFFF;
+}
+
+.hero-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.hero-content{
+    flex: 1;
+}
+
+.panel__eyebrow{
+    margin:0;
+    font-size:15px;
+    opacity:.9;
+}
+
+.panel__title{
+    margin:8px 0;
+    font-size:32px;
+    font-weight:700;
+}
+
+.panel__subtitle{
+    margin:0;
+    font-size:16px;
+    line-height:1.6;
+    opacity:.95;
+}
+
+.hero-pill{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-left: auto;
+
+    min-width: 130px;
+    height: 44px;
+
+    padding: 0 20px;
+
+    background: #FFFFFF;
+    color: #109784;
+
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 700;
+    white-space: nowrap;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,.08);
+}
+
+
+/* =====================================
+   HOME LIST
+===================================== */
+
+.page--home .home__list,
+.page--medications .card-list,
+.page--family .card-list{
+    display:grid;
+    gap:18px;
+}
+
+/* =====================================
+   STATISTICS
+===================================== */
+
+.panel--stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.stat-card{
+    background:#FFFFFF;
+    border-radius:20px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.06);
+}
+
+.stat-card__value{
+    margin:0;
+    font-size:32px;
+    font-weight:700;
+    color:#109784;
+}
+
+.stat-card__label{
+    margin-top:8px;
+    color:#666;
+    font-size:16px;
+}
+
+/* =====================================
+   QUICK ACTIONS
+===================================== */
+
+.action-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.button--large{
+    width:100%;
+    min-height:56px;
+}
+
+/* =====================================
+   SUPPORT PANEL
+===================================== */
+
+.panel--support{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+/* =====================================
+   EMPTY STATE
+===================================== */
+
+.empty-state{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:18px;
+    border-radius:18px;
+    background:#E6F6F4;
+    color:#109784;
+    font-weight:600;
+}
+
+/* =====================================
+   PROFILE
+===================================== */
+
+.panel--profile-hero{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.profile-avatar{
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:#109784;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#FFFFFF;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.menu-list{
+    display:grid;
+    gap:12px;
+}
+
+.menu-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 0;
+    border-bottom:1px solid #E5E7EB;
+}
+
+.button--danger{
+    background:#DC2626;
+    color:#FFFFFF;
+}
+
+/* =====================================
+   CALENDAR
+===================================== */
+
+.panel--calendar-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.profile-card,
+.calendar-preview,
+.calendar-summary{
+    background:#FFFFFF;
+    border-radius:20px;
+    padding:20px;
+}
+
+/* =====================================
+   PHONE
+===================================== */
+
+@media (max-width:767px){
+
+.page{
+    padding:15px;
+}
+
+.panel{
+    padding:18px;
+}
+
+.hero-top{
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.hero-pill{
+    margin-left: 0;
+    margin-top: 15px;
+}
+
+
+.panel__title{
+    font-size:26px;
+}
+
+.panel__subtitle{
+    font-size:15px;
+}
+
+.panel--stats{
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
+.stat-card{
+    padding:15px;
+}
+
+.stat-card__value{
+    font-size:24px;
+}
+
+.stat-card__label{
+    font-size:14px;
+}
+
+.action-grid{
+    grid-template-columns:1fr;
+}
+
+.panel--support{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.panel--calendar-grid{
+    grid-template-columns:1fr;
+}
+
+.profile-avatar{
+    width:65px;
+    height:65px;
+    font-size:24px;
+}
+
+}
+
+/* =====================================
+   TABLETS
+===================================== */
+
+@media (min-width:768px) and (max-width:1023px){
+
+.page{
+    max-width:760px;
+}
+
+.action-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.panel--calendar-grid{
+    grid-template-columns:1fr 1fr;
+}
+
+}
+
+/* =====================================
+   iPAD
+===================================== */
+
+@media (min-width:1024px) and (max-width:1366px){
+
+.page{
+    max-width:1050px;
+}
+
+.action-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.panel--calendar-grid{
+    grid-template-columns:1.2fr .8fr;
+}
+
+}
+
+/* =====================================
+   LAPTOP & DESKTOP
+===================================== */
+
+@media (min-width:1367px){
+
+.page{
+    max-width:1350px;
+}
+
+.action-grid{
+    grid-template-columns:repeat(4,1fr);
+}
+
+.page--home .home__list,
+.page--medications .card-list,
+.page--notifications .card-list,
+.page--family .card-list{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.panel--calendar-grid{
+    grid-template-columns:1.3fr .7fr;
+}
+
+.hero-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.hero-content{
+    flex:1;
+}
+
+.hero-pill{
+    margin-left:auto;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:130px;
+    height:44px;
+    padding:0 20px;
+    border-radius:999px;
+    background:#FFFFFF;
+    color:#109784;
+    font-weight:700;
+    font-size:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.panel--stats{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.stat-card{
+    padding:24px;
+}
+
+.panel--support{
+    align-items:center;
+}
+
+} 

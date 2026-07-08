@@ -1,0 +1,26 @@
+.loading-screen {
+  min-height: calc(100vh - 76px);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.loading-screen__spinner {
+  width: 72px;
+  height: 72px;
+  border: 8px solid rgba(16, 151, 132, 0.12);
+  border-top-color: var(--primary-green);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1.25rem;
+}
+
+.loading-screen__text {
+  font-size: 1rem;
+  color: #1f2937;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

@@ -1,0 +1,101 @@
+.age-selection {
+    min-height: 100vh;
+    background: #E6F6F4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.age-selection__container {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+}
+
+/* Images Row */
+
+.age-selection__images {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.age-selection__img {
+    width: 130px;
+    height: auto;
+    object-fit: contain;
+}
+
+.age-selection__title {
+    font-size: 30px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.age-selection__subtitle {
+    font-size: 17px;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+.age-card {
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 18px;
+    border-radius: 18px;
+    border: 2px solid #BBEEE8;
+    background: #fff;
+    cursor: pointer;
+    text-align: left;
+    transition: .3s;
+}
+
+.age-card.selected {
+    background: #BBEEE8;
+    border-color: #109784;
+}
+
+.age-card h3 {
+    margin: 0 0 5px;
+    color: #109784;
+}
+
+.age-card span {
+    color: #666;
+}
+
+.age-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.age-buttons button {
+    flex: 1;
+    height: 56px;
+    border-radius: 16px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.skip-btn {
+    background: white;
+    color: #109784;
+    border: 2px solid #109784;
+}
+
+.next-btn {
+    background: #109784;
+    color: white;
+    border: none;
+}
+
+.next-btn:disabled {
+    background: #B0E4DD;
+    cursor: not-allowed;
+}

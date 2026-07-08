@@ -1,0 +1,367 @@
+/* ==========================================
+   NOTIFICATIONS PAGE
+==========================================*/
+
+.page--notifications{
+    max-width:1400px;
+    margin:auto;
+    padding:110px 24px 120px;
+    background:#F5FAFA;
+}
+
+/* ==========================================
+   HERO
+==========================================*/
+
+.page--notifications .panel--hero{
+    background:linear-gradient(135deg,#109784,#18C3A8,#32D7B8);
+    color:#141313;
+    padding:45px;
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 20px 45px rgba(16,151,132,.20);
+}
+
+.page--notifications .panel--hero::before{
+    content:"";
+    position:absolute;
+    right:-70px;
+    top:-70px;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(255,255,255,.12);
+}
+
+.page--notifications h1{
+    font-size:44px;
+    margin-bottom:12px;
+    font-weight:700;
+}
+
+.page--notifications .panel__subtitle{
+    font-size:18px;
+    max-width:520px;
+    opacity:.95;
+}
+
+/* ==========================================
+   SUMMARY CARDS
+==========================================*/
+
+.notification-summary{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin:30px 0;
+}
+
+.summary-card{
+    background:#fff;
+    border-radius:24px;
+    padding:28px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+    transition:.35s;
+    border-top:6px solid #109784;
+}
+
+.summary-card:hover{
+    transform:translateY(-8px);
+}
+
+.summary-card h3{
+    font-size:42px;
+    color:#109784;
+    margin-bottom:8px;
+}
+
+.summary-card p{
+    color:#666;
+    font-size:16px;
+}
+
+.summary-card--orange{
+    border-top-color:#F59E0B;
+}
+
+.summary-card--orange h3{
+    color:#F59E0B;
+}
+
+.summary-card--green{
+    border-top-color:#22C55E;
+}
+
+.summary-card--green h3{
+    color:#22C55E;
+}
+
+/* ==========================================
+   PANELS
+==========================================*/
+
+.page--notifications .panel{
+    background:#fff;
+    margin-top:28px;
+    border-radius:26px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+/* ==========================================
+   HEADER
+==========================================*/
+
+.panel__header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+    padding-bottom:18px;
+    border-bottom:2px solid #F1F4F5;
+}
+
+.panel__header h2{
+    font-size:24px;
+    color:#222;
+}
+
+/* ==========================================
+   LIST
+==========================================*/
+
+.card-list{
+    display:grid;
+    gap:22px;
+}
+
+/* ==========================================
+   ROW
+==========================================*/
+
+.notification-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+
+    background:#fff;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    border:1px solid #E8EEEE;
+
+    transition:.35s;
+}
+
+.notification-row:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+/* Upcoming */
+
+.notification-row.upcoming{
+    border-left:6px solid #109784;
+}
+
+/* Missed */
+
+.notification-row.missed{
+    border-left:6px solid #F59E0B;
+}
+
+/* Completed */
+
+.notification-row.completed{
+    border-left:6px solid #22C55E;
+}
+
+.notification-row article{
+    flex:1;
+}
+
+/* ==========================================
+   BUTTONS
+==========================================*/
+
+.button{
+    border:none;
+    cursor:pointer;
+    transition:.3s;
+    border-radius:14px;
+    font-weight:600;
+    font-size:15px;
+}
+
+.button--primary{
+    background:#109784;
+    color:#fff;
+    padding:12px 26px;
+}
+
+.button--primary:hover{
+    background:#0d7f70;
+    transform:translateY(-2px);
+}
+
+.button--secondary{
+    background:#E8F8F5;
+    color:#109784;
+    padding:12px 26px;
+}
+
+.button--secondary:hover{
+    background:#D5F0EB;
+}
+
+.button--danger{
+    background:#EF4444;
+    color:#fff;
+    padding:12px 26px;
+}
+
+.button--danger:hover{
+    background:#DC2626;
+}
+
+/* ==========================================
+   EMPTY BOX
+==========================================*/
+
+.empty-box{
+    text-align:center;
+    padding:45px;
+    background:#F8FCFC;
+    border:2px dashed #CFEFE8;
+    border-radius:20px;
+}
+
+.empty-box h3{
+    color:#109784;
+    margin-bottom:10px;
+}
+
+.empty-box p{
+    color:#666;
+}
+
+/* ==========================================
+   SECTION COLORS
+==========================================*/
+
+.page--notifications .panel:nth-of-type(3){
+    border-top:5px solid #109784;
+}
+
+.page--notifications .panel:nth-of-type(4){
+    border-top:5px solid #F59E0B;
+}
+
+.page--notifications .panel:nth-of-type(5){
+    border-top:5px solid #22C55E;
+}
+
+/* ==========================================
+   PHONE
+==========================================*/
+
+@media(max-width:767px){
+
+.page--notifications{
+    padding:90px 16px 100px;
+}
+
+.page--notifications .panel--hero{
+    padding:28px;
+}
+
+.page--notifications h1{
+    font-size:32px;
+}
+
+.notification-summary{
+    grid-template-columns:1fr;
+}
+
+.panel__header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.notification-row{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.notification-row .button{
+    width:100%;
+}
+
+}
+
+/* ==========================================
+   TABLET
+==========================================*/
+
+@media(min-width:768px) and (max-width:1023px){
+
+.page--notifications{
+    max-width:760px;
+}
+
+.notification-summary{
+    grid-template-columns:repeat(3,1fr);
+}
+
+.notification-row{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.notification-row .button{
+    width:100%;
+}
+
+}
+
+/* ==========================================
+   iPAD
+==========================================*/
+
+@media(min-width:1024px) and (max-width:1366px){
+
+.page--notifications{
+    max-width:1100px;
+}
+
+.notification-summary{
+    grid-template-columns:repeat(3,1fr);
+}
+
+}
+
+/* ==========================================
+   DESKTOP
+==========================================*/
+
+@media(min-width:1367px){
+
+.page--notifications{
+    max-width:1350px;
+}
+
+.page--notifications h1{
+    font-size:48px;
+}
+
+.notification-summary{
+    grid-template-columns:repeat(3,1fr);
+}
+
+}

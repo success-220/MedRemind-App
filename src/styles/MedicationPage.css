@@ -1,0 +1,317 @@
+/* ==========================================
+   MEDICATION PAGE
+========================================== */
+
+.page--medications{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    padding:110px 25px 120px;
+}
+
+/* ==========================================
+   FORM PANEL
+========================================== */
+
+.panel--form{
+    background:#FFFFFF;
+    border-radius:30px;
+    padding:35px;
+    margin-bottom:30px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.panel--form h1{
+    font-size:34px;
+    color:#109784;
+    margin-bottom:10px;
+}
+
+.panel--form .panel__subtitle{
+    color:#666;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+/* ==========================================
+   FORM
+========================================== */
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.form-field{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    font-weight:600;
+    color:#444;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea{
+    width:100%;
+    padding:15px 18px;
+    border:2px solid #E6F6F4;
+    border-radius:16px;
+    outline:none;
+    font-size:15px;
+    transition:.3s;
+    background:#fff;
+}
+
+.form-field textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.form-field input:focus,
+.form-field textarea:focus,
+.form-field select:focus{
+    border-color:#109784;
+    box-shadow:0 0 0 4px rgba(16,151,132,.12);
+}
+
+.form-field--full{
+    grid-column:1/-1;
+}
+
+.form-error{
+    grid-column:1/-1;
+    color:#DC2626;
+    font-weight:600;
+}
+
+.form-submit{
+    grid-column:1/-1;
+    height:58px;
+    border:none;
+    border-radius:18px;
+    background:linear-gradient(135deg,#109784,#00B39A);
+    color:#fff;
+    font-size:17px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.form-submit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 12px 25px rgba(16,151,132,.25);
+}
+
+/* ==========================================
+   MEDICATION LIST PANEL
+========================================== */
+
+.page--medications .panel{
+    background:#fff;
+    border-radius:30px;
+    padding:30px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.panel__header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.panel__header h2{
+    color:#109784;
+    font-size:28px;
+}
+
+.panel__header p{
+    color:#777;
+    font-weight:600;
+}
+
+/* ==========================================
+   MEDICATION CARDS
+========================================== */
+
+.card-list{
+    display:grid;
+    gap:20px;
+}
+
+.page--medications .card{
+    background:#fff;
+    border-radius:22px;
+    padding:22px;
+    border:1px solid #E8F4F2;
+    box-shadow:0 6px 18px rgba(0,0,0,.06);
+    transition:.3s;
+}
+
+.page--medications .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(16,151,132,.12);
+}
+
+.card__header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.card__title{
+    font-size:22px;
+    color:#222;
+}
+
+.card__pill{
+    background:#E6F6F4;
+    color:#109784;
+    padding:8px 16px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:700;
+}
+
+.card__text{
+    margin:8px 0;
+    color:#666;
+    font-size:15px;
+}
+
+/* ==========================================
+   CARD BUTTONS
+========================================== */
+
+.card__actions{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.card__actions button{
+    flex:1;
+    border:none;
+    border-radius:14px;
+    height:48px;
+    cursor:pointer;
+    font-weight:700;
+    transition:.3s;
+}
+
+.card__actions button:first-child{
+    background:#109784;
+    color:#fff;
+}
+
+.card__actions button:first-child:hover{
+    background:#0d7d6d;
+}
+
+.card__actions button:last-child{
+    background:#FFE5E5;
+    color:#DC2626;
+}
+
+.card__actions button:last-child:hover{
+    background:#DC2626;
+    color:#fff;
+}
+
+/* ==========================================
+   PHONE
+========================================== */
+
+@media(max-width:767px){
+
+.page--medications{
+    padding:90px 15px 100px;
+}
+
+.panel--form{
+    padding:25px;
+}
+
+.panel--form h1{
+    font-size:28px;
+}
+
+.form-grid{
+    grid-template-columns:1fr;
+}
+
+.form-field--full,
+.form-submit{
+    grid-column:auto;
+}
+
+.panel__header{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+}
+
+.card__actions{
+    flex-direction:column;
+}
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media(min-width:768px) and (max-width:1023px){
+
+.page--medications{
+    max-width:760px;
+}
+
+.card-list{
+    grid-template-columns:1fr;
+}
+
+}
+
+/* ==========================================
+   IPAD
+========================================== */
+
+@media(min-width:1024px) and (max-width:1366px){
+
+.page--medications{
+    max-width:1100px;
+}
+
+.card-list{
+    grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* ==========================================
+   LAPTOP & DESKTOP
+========================================== */
+
+@media(min-width:1367px){
+
+.page--medications{
+    max-width:1350px;
+}
+
+.form-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.card-list{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.panel--form h1{
+    font-size:38px;
+}
+
+}
