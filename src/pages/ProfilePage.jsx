@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext.jsx';
 import { MedicationContext } from '../context/MedicationContext.jsx';
 import { SettingsContext } from '../context/SettingsContext.jsx';
-import '../styles/Profilepage.css';
+import '../styles/ProfilePage.css';
 
 function ProfilePage() {
   const navigate = useNavigate();
