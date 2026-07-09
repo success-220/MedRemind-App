@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "node ./node_modules/vite/bin/vite.js",
     "build": "node ./node_modules/vite/bin/vite.js build",
+    "vercel-build": "npm run build",
     "preview": "node ./node_modules/vite/bin/vite.js preview"
   },
   "dependencies": {
