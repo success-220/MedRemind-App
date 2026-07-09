@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NotificationContext } from "../context/NotificationContext.jsx";
 import NotificationCard from "../components/NotificationCard.jsx";
 import "../styles/NotificationsPage.css";
-import "../styles/Pages.css";
+import "../styles/pages.css";
 
 function NotificationsPage() {
   const {
