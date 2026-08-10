@@ -7,7 +7,7 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import "./App.css"; // <-- Add this
+import "./App.css";
 
 import LoadingScreen from "./components/LoadingScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -37,7 +37,8 @@ function AppShell() {
   const location = useLocation();
   const { user } = useContext(AuthContext);
 
-  // Pages that should NOT show Navbar or Bottom Navigation
+  const hasOnboarded = localStorage.getItem("medremind_onboarded") === "true";
+
   const publicPages = [
     "/",
     "/onboarding",
@@ -60,8 +61,15 @@ function AppShell() {
 
           {/* Public Pages */}
           <Route path="/" element={<SplashPage />} />
-          <Route path="/onboarding" element={<OnboardingPage />} />
-          <Route path="/age-selection" element={<AgeSelectionPage />} />
+          
+          <Route 
+            path="/onboarding" 
+            element={hasOnboarded ? <Navigate to="/login" replace /> : <OnboardingPage />} 
+          />
+          <Route 
+            path="/age-selection" 
+            element={hasOnboarded ? <Navigate to="/login" replace /> : <AgeSelectionPage />} 
+          />
 
           <Route
             path="/login"
