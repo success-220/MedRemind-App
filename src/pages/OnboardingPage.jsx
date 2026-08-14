@@ -5,13 +5,18 @@ import "../styles/onboarding.css";
 function OnboardingPage() {
   const navigate = useNavigate();
 
+  const handleContinue = () => {
+    localStorage.setItem("medremind_onboarded", "true");
+    navigate("/age-selection");
+  };
+
   return (
     <main className="onboarding">
       <div className="onboarding__content">
 
         <div className="onboarding__image">
           <img
-            src="/images/onboarding.png"   // Change to .png if your file is a PNG
+            src="/images/onboarding.png"   
             alt="Medication Reminder"
           />
         </div>
@@ -28,14 +33,14 @@ function OnboardingPage() {
         <div className="onboarding__actions">
           <button
             className="button button--secondary"
-            onClick={() => navigate("/age-selection")}
+            onClick={handleContinue} 
           >
             Skip
           </button>
 
           <button
             className="button button--primary"
-            onClick={() => navigate("/age-selection")}
+            onClick={handleContinue} 
           >
             Next
           </button>

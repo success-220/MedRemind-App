@@ -63,6 +63,7 @@ const requests = {
 const Auth = {
   login: (email, password) => requests.post('/auth/login', { email, password }),
   register: (userData) => requests.post('/auth/register', userData),
+  googleLogin: (credential) => requests.post('/auth/google', { credential }),
 };
 
 const Medications = {
