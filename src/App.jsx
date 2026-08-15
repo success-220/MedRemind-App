@@ -13,8 +13,13 @@ import LoadingScreen from "./components/LoadingScreen";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Navbar from "./components/Navbar";
 import BottomNavigation from "./components/BottomNavigation";
+import AlarmEngine from "./components/AlarmEngine";
 import ChatbotWidget from "./components/ChatbotWidget";
 import { AuthContext } from "./context/AuthContext";
+
+// 🟢 The Providers are imported here
+import { MedicationProvider } from "./context/MedicationContext";
+import { NotificationProvider } from "./context/NotificationContext";
 
 // Pages
 const SplashPage = lazy(() => import("./pages/SplashPage"));
@@ -187,6 +192,7 @@ function AppShell() {
 
       {/* Chatbot */}
       {user?.isAuthenticated && <ChatbotWidget />}
+      {user?.isAuthenticated && <AlarmEngine />}
 
       {/* Bottom Navigation */}
       {showLayout && user?.isAuthenticated && <BottomNavigation />}
@@ -198,7 +204,11 @@ function AppShell() {
 export default function App() {
   return (
     <Router>
-      <AppShell />
+      <MedicationProvider>
+        <NotificationProvider>
+          <AppShell />
+        </NotificationProvider>
+      </MedicationProvider>
     </Router>
   );
 }

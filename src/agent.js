@@ -87,4 +87,5 @@ const Doses = {
   history: () => requests.get('/doses'),
 };
 
+
 export default { Auth, Medications, Settings, AI, Doses };
