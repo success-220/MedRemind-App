@@ -87,4 +87,9 @@ const Doses = {
   history: () => requests.get('/doses'),
 };
 
-export default { Auth, Medications, Settings, AI, Doses };
+const Reminders = {
+  checkDue: () => requests.get(`/reminders/due?time=${localTime}`),
+  snooze: (medicationId) => requests.post(`/reminders/snooze/${medicationId}/snooze`, {}),
+};
+
+export default { Auth, Medications, Settings, AI, Doses, Reminders };
