@@ -88,8 +88,8 @@ const Doses = {
 };
 
 const Reminders = {
-  checkDue: () => requests.get(`/reminders/due?time=${localTime}`),
-  snooze: (medicationId) => requests.post(`/reminders/snooze/${medicationId}/snooze`, {}),
+  checkDue: (time) => requests.get(`/reminders/due?time=${encodeURIComponent(time)}`),
+  snooze: (medicationId) => requests.post(`/reminders/snooze/${medicationId}`, {}),
 };
 
 export default { Auth, Medications, Settings, AI, Doses, Reminders };
