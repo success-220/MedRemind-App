@@ -6,9 +6,12 @@ import { loadData, saveData } from '../utils/storage.js';
 export const SettingsContext = createContext();
 
 const SETTINGS_KEY = 'medremind-settings';
+
+// Added alarmSound to default settings
 const defaultSettings = {
   darkMode: true,
   remindersEnabled: true,
+  alarmSound: localStorage.getItem("medremind_alarm_sound") || "/alarm.mp3",
 };
 
 export function SettingsProvider({ children }) {
@@ -65,8 +68,27 @@ export function SettingsProvider({ children }) {
     }
   };
 
+  //  NEW: Function to change the sound and broadcast it
+  const changeAlarmSound = (soundFile) => {
+    // Update context state for the UI
+    setSettings((current) => ({ ...current, alarmSound: soundFile }));
+    
+    // Save to specific key that AlarmEngine is watching
+    localStorage.setItem("medremind_alarm_sound", soundFile);
+    
+    // Broadcast the change instantly to the AlarmEngine
+    window.dispatchEvent(new Event("alarmSoundChanged"));
+  };
+
   return (
-    <SettingsContext.Provider value={{ settings, toggleDarkMode, toggleReminders }}>
+    <SettingsContext.Provider 
+      value={{ 
+        settings, 
+        toggleDarkMode, 
+        toggleReminders, 
+        changeAlarmSound 
+      }}
+    >
       {children}
     </SettingsContext.Provider>
   );
