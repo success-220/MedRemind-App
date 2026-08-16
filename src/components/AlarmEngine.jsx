@@ -5,18 +5,35 @@ export default function AlarmEngine() {
   const { medications } = useContext(MedicationContext);
   const [activeAlarms, setActiveAlarms] = useState([]); 
   
-  const alarmAudio = useRef(new Audio("/alarm.mp3"));
+  const alarmAudio = useRef(new Audio());
   const rungToday = useRef(new Set());
 
+  //  AUDIO SETUP & EVENT LISTENER
   useEffect(() => {
+    // Function to fetch the latest sound from storage
+    const loadAlarmSound = () => {
+      const savedSound = localStorage.getItem("medremind_alarm_sound") || "/alarm.mp3";
+      alarmAudio.current.src = savedSound;
+      alarmAudio.current.load(); 
+      console.log(`🔊 AlarmEngine loaded sound: ${savedSound}`);
+    };
+
+    // Load it when the app first opens
+    loadAlarmSound();
     alarmAudio.current.loop = true; 
+
+    // Listen for the custom broadcast from the Settings page
+    window.addEventListener("alarmSoundChanged", loadAlarmSound);
     
-    // Test tool attached to the window so you can trigger it from console
+    // Test tool
     window.testAlarm = () => {
       console.log("🛠️ Testing Alarm Engine...");
       setActiveAlarms([{ id: "test", name: "Test Medication", dosage: "1 Pill" }]);
       alarmAudio.current.play().catch(e => alert("Please click the screen once to allow audio, then run testAlarm() again."));
     };
+
+    // Cleanup the listener if the component ever unmounts
+    return () => window.removeEventListener("alarmSoundChanged", loadAlarmSound);
   }, []);
 
   //  EXACT-TIME CLOCK ENGINE
@@ -36,7 +53,7 @@ export default function AlarmEngine() {
 
         let medTime24 = String(med.time).trim();
         
-        // Handle AM/PM
+        // Handle AM/PM conversion
         if (medTime24.toUpperCase().includes("AM") || medTime24.toUpperCase().includes("PM")) {
           const [time, modifier] = medTime24.split(/(\s+)/).filter(e => e.trim().length > 0);
           let [hours, minutes] = time.split(":");
@@ -44,11 +61,12 @@ export default function AlarmEngine() {
           if (modifier.toUpperCase() === "PM" && hours !== "12") hours = String(parseInt(hours, 10) + 12);
           medTime24 = `${String(hours).padStart(2, "0")}:${minutes}`;
         }
+        
         if (medTime24.length === 4) medTime24 = `0${medTime24}`;
 
         const uniqueAlarmId = `${med.id}-${currentTime24}`;
         
-        // THE TRIGGER
+        // THE STRICT TRIGGER
         if (medTime24 === currentTime24 && !rungToday.current.has(uniqueAlarmId)) {
           newAlarms.push(med);
           rungToday.current.add(uniqueAlarmId);
@@ -60,22 +78,26 @@ export default function AlarmEngine() {
         setActiveAlarms(prev => [...prev, ...newAlarms]);
       }
 
-    }, 10000); 
+    }, 10000); // Check the clock every 10 seconds
 
     return () => clearInterval(timer);
   }, [medications]);
 
+  // 3. STOP ALARM HANDLER
   const handleStopAlarm = (medicationId) => {
+    // If this is the last active alarm on the screen, shut off the music
     if (activeAlarms.length === 1) {
       alarmAudio.current.pause();
       alarmAudio.current.currentTime = 0;
     }
+    // Remove it from the popup list
     setActiveAlarms(current => current.filter(med => med.id !== medicationId));
   };
 
-  // If no alarms are ringing, render absolutely nothing
+  // If no alarms are currently ringing, render absolutely nothing (invisible component)
   if (activeAlarms.length === 0) return null;
 
+  // 4. THE POPUP UI
   return (
     <div style={overlayStyle}>
       <div style={modalStyle}>
@@ -97,6 +119,7 @@ export default function AlarmEngine() {
     </div>
   );
 }
+
 
 const overlayStyle = { position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.85)', zIndex: 9999, display: 'flex', alignItems: 'center', justifyContent: 'center' };
 const modalStyle = { backgroundColor: '#1e1e1e', padding: '30px', borderRadius: '16px', width: '90%', maxWidth: '400px', textAlign: 'center', color: '#ffffff', boxShadow: '0 10px 30px rgba(0,0,0,0.5)' };

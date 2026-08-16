@@ -1,83 +1,149 @@
-import React, { useContext } from "react";
-import { SettingsContext } from "../context/SettingsContext.jsx";
-import "../styles/pages.css";
+import React, { useContext, useState, useRef, useEffect } from "react";
+import { SettingsContext } from "../context/SettingsContext";
+import "../styles/appsettings.css";
 
-function AppSettingsPage() {
-  const { settings, toggleDarkMode } = useContext(SettingsContext);
+export default function AppSettingsPage() {
+  const { settings, toggleDarkMode, toggleReminders, changeAlarmSound } = useContext(SettingsContext);
+  
+  // Track which sound file is currently playing, and the audio instance
+  const [playingSound, setPlayingSound] = useState(null);
+  const audioRef = useRef(null);
+
+  // Cleanup audio if they leave the page while it's playing
+  useEffect(() => {
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, []);
+
+  const togglePreview = (soundFile) => {
+    // If the exact same sound is already playing, pause it
+    if (playingSound === soundFile && audioRef.current) {
+      audioRef.current.pause();
+      setPlayingSound(null);
+      return;
+    }
+
+    // If another sound is playing, stop it first
+    if (audioRef.current) {
+      audioRef.current.pause();
+    }
+
+    // Create and play the new sound
+    const audio = new Audio(soundFile);
+    audioRef.current = audio;
+    
+    audio.play();
+    setPlayingSound(soundFile);
+
+    // When the audio finishes naturally, reset the icon back to play
+    audio.onended = () => {
+      setPlayingSound(null);
+    };
+  };
 
   return (
-    <main className="page page--settings">
+    <main className="settings-page">
+      <div className="settings-container">
+        
+        <h1 className="settings-title">App Settings</h1>
 
-      {/* Header */}
-      <section className="panel panel--hero">
-        <div className="hero-content">
-          <p className="panel__eyebrow">Preferences</p>
-          <h1 className="panel__title">App Settings</h1>
-          <p className="panel__subtitle">
-            Customize your MedRemind experience.
+        {/* Existing Toggles */}
+        <div className="settings-section">
+          {/* <label className="toggle-label">
+            <input 
+              type="checkbox" 
+              className="toggle-checkbox"
+              checked={settings.darkMode} 
+              onChange={toggleDarkMode} 
+            />
+            <span>Dark Mode</span>
+          </label> */}
+
+          <label className="toggle-label">
+            <input 
+              type="checkbox" 
+              className="toggle-checkbox"
+              checked={settings.remindersEnabled} 
+              onChange={toggleReminders} 
+            />
+            <span>Enable Notifications</span>
+          </label>
+        </div>
+
+        <hr className="settings-divider" />
+
+        {/* ALARM SOUND PICKER UI */}
+        <div className="settings-section">
+          <h2 className="settings-subtitle">Alarm Sound Preference</h2>
+          <p className="settings-description">
+            Current Sound: <strong>{
+              settings.alarmSound === "/alarm.mp3" ? "Default Alarm" : 
+              settings.alarmSound === "/alarm2.mp3" ? "Gentle Chime" : 
+              settings.alarmSound === "/alarm3.mp3" ? "Classic Bell" : 
+              "Custom Alarm"
+            }</strong>
           </p>
+
+          <div className="alarm-options-grid">
+            
+            {/* Sound Option 1 */}
+            <div className={`alarm-card ${settings.alarmSound === "/alarm.mp3" ? "active-card" : ""}`}>
+              <span className="alarm-name">🚨 Default Alarm</span>
+              <div className="alarm-actions">
+                <button className="btn-preview" onClick={() => togglePreview("/alarm.mp3")}>
+                  {playingSound === "/alarm.mp3" ? "⏸️ Pause" : "▶️ Play"}
+                </button>
+                <button 
+                  className={`btn-select ${settings.alarmSound === "/alarm.mp3" ? "selected" : ""}`}
+                  onClick={() => changeAlarmSound("/alarm.mp3")} 
+                  disabled={settings.alarmSound === "/alarm.mp3"}
+                >
+                  {settings.alarmSound === "/alarm.mp3" ? "Selected" : "Select"}
+                </button>
+              </div>
+            </div>
+
+            {/* Sound Option 2 */}
+            <div className={`alarm-card ${settings.alarmSound === "/alarm2.mp3" ? "active-card" : ""}`}>
+              <span className="alarm-name">✨ Gentle Chime</span>
+              <div className="alarm-actions">
+                <button className="btn-preview" onClick={() => togglePreview("/alarm2.mp3")}>
+                  {playingSound === "/alarm2.mp3" ? "⏸️ Pause" : "▶️ Play"}
+                </button>
+                <button 
+                  className={`btn-select ${settings.alarmSound === "/alarm2.mp3" ? "selected" : ""}`}
+                  onClick={() => changeAlarmSound("/alarm2.mp3")} 
+                  disabled={settings.alarmSound === "/alarm2.mp3"}
+                >
+                  {settings.alarmSound === "/alarm2.mp3" ? "Selected" : "Select"}
+                </button>
+              </div>
+            </div>
+
+            {/* Sound Option 3 */}
+            <div className={`alarm-card ${settings.alarmSound === "/alarm3.mp3" ? "active-card" : ""}`}>
+              <span className="alarm-name">🔔 Classic Bell</span>
+              <div className="alarm-actions">
+                <button className="btn-preview" onClick={() => togglePreview("/alarm3.mp3")}>
+                  {playingSound === "/alarm3.mp3" ? "⏸️ Pause" : "▶️ Play"}
+                </button>
+                <button 
+                  className={`btn-select ${settings.alarmSound === "/alarm3.mp3" ? "selected" : ""}`}
+                  onClick={() => changeAlarmSound("/alarm3.mp3")} 
+                  disabled={settings.alarmSound === "/alarm3.mp3"}
+                >
+                  {settings.alarmSound === "/alarm3.mp3" ? "Selected" : "Select"}
+                </button>
+              </div>
+            </div>
+
+          </div>
         </div>
-      </section>
 
-      {/* Settings List */}
-      <section className="panel">
-        <div className="menu-list">
-
-          <div className="menu-item">
-            <span>🌐 Language</span>
-            <strong>English</strong>
-          </div>
-
-          <div className="menu-item">
-            <span>🔔 Reminder Sound</span>
-            <strong>Enabled</strong>
-          </div>
-
-          <div className="menu-item">
-            <span>🔊 Reminder Volume</span>
-            <strong>High</strong>
-          </div>
-
-          <button
-            className="menu-item menu-item--button"
-            onClick={toggleDarkMode}
-          >
-            <span>🌙 Dark Mode</span>
-            <strong>{settings.darkMode ? "On" : "Off"}</strong>
-          </button>
-
-          <div className="menu-item">
-            <span>📳 Notifications</span>
-            <strong>Enabled</strong>
-          </div>
-
-          <div className="menu-item">
-            <span>☁ Backup & Restore</span>
-            <strong>Available</strong>
-          </div>
-
-          <div className="menu-item">
-            <span>🔒 Privacy</span>
-            <strong>Protected</strong>
-          </div>
-
-          <div className="menu-item">
-            <span>ℹ About</span>
-            <strong>MedRemind v1.0</strong>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Footer */}
-      <section className="panel">
-        <p className="panel__subtitle" style={{ textAlign: "center" }}>
-          MedRemind Version 1.0.0
-        </p>
-      </section>
-
+      </div>
     </main>
   );
 }
-
-export default AppSettingsPage;
